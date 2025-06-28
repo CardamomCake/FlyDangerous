@@ -76,7 +76,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4946444608520834635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e15f030d6737a24c97604bf50ff9066, type: 3}
+  m_Script: {fileID: 11500000, guid: 745c6b491ac7d31459e697d12cb976ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shipForceAdd: 200000
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5636640226659539518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a79c59f50397ce46a5b54e2e79da687, type: 3}
+  m_Script: {fileID: 11500000, guid: dc6a98158bdbd8f44987709f8f1e4858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shipForceAdd: 50000000
@@ -268,7 +268,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5d5f81bf779de7642965d77244cbc44d, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 5648153489116731256}
   - component: {fileID: 5581863987755361614}
   m_Layer: 12
-  m_Name: Modifier Boost
+  m_Name: Modifier Boost 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -451,13 +451,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5648153489116731257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fb08a787e81032448d884a027081cca, type: 3}
+  m_Script: {fileID: 11500000, guid: 674742aa9540491419c64c31d9fcf041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modifierBoostAttractor: {fileID: 349132545129032735}
-  modifierBoostThrust: {fileID: 7603638463965430273}
-  modifierBoostStream: {fileID: 1516465810693073866}
-  boostStreamLengthMeters: 8996
+  modifierBoost2Attractor: {fileID: 349132545129032735}
+  modifierBoost2Thrust: {fileID: 7603638463965430273}
+  modifierBoost2Stream: {fileID: 1516465810693073866}
+  boost2StreamLengthMeters: 0
 --- !u!1 &8900242506664234105
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8900242506664234105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e34dbec0d0a90c4eb57deefbf456f42, type: 3}
+  m_Script: {fileID: 11500000, guid: 5563332a9a575d74ab709c376c8d6bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &5332165236814207818

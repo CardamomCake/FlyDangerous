@@ -4,6 +4,8 @@ using System.Linq;
 using Core.MapData;
 using Core.MapData.Serializable;
 using Core.ShipModel.Modifiers.Boost;
+using Core.ShipModel.Modifiers.Boost2;
+using Core.ShipModel.Modifiers.GravityField;
 using JetBrains.Annotations;
 using NaughtyAttributes;
 using UnityEngine;
@@ -14,13 +16,17 @@ namespace Gameplay {
         private string modifierType;
 
         [SerializeField] private ModifierBoost modifierBoost;
+        [SerializeField] private ModifierBoost2 modifierBoost2;
+        [SerializeField] private ModifierGravityField modifierGravityField;
 
         [ShowIf("ShowBoostAttributes")] [Range(1000, 50000)] [OnValueChanged("SetModifierAttributes")] [SerializeField]
         private float boostTrailLength = 15000;
+        private float boost2TrailLength = 15000;
 
         private ModifierData _modifierData;
 
         public float BoostTrailLength => boostTrailLength;
+        public float Boost2TrailLength => boost2TrailLength;
 
         public ModifierData ModifierData {
             get {
@@ -30,8 +36,11 @@ namespace Gameplay {
             private set {
                 _modifierData = value;
                 modifierType = ModifierType.FromString(_modifierData.Name).Name;
+                Debug.Log(_modifierData.Name);
+                Debug.Log(modifierType);
 
                 if (_modifierData is BoostModifierData boostModifierData) boostTrailLength = boostModifierData.BoostLengthMeters;
+                if (_modifierData is Boost2ModifierData boost2ModifierData) boost2TrailLength = boost2ModifierData.Boost2LengthMeters;
 
                 ResetAll();
             }
@@ -51,6 +60,12 @@ namespace Gameplay {
                                    Math.Abs(serializedData.boostTrailLengthMeters.Value - boostModifierData.BoostLengthMeters) > 0.01f
                     ? serializedData.boostTrailLengthMeters.Value
                     : boostModifierData.BoostLengthMeters;
+
+            if (ModifierData is Boost2ModifierData boost2ModifierData)
+                boostTrailLength = serializedData.boost2TrailLengthMeters != null &&
+                                   Math.Abs(serializedData.boost2TrailLengthMeters.Value - boost2ModifierData.Boost2LengthMeters) > 0.01f
+                    ? serializedData.boost2TrailLengthMeters.Value
+                    : boost2ModifierData.Boost2LengthMeters;
 
             ResetAll();
             SetModifierAttributes();
@@ -75,10 +90,13 @@ namespace Gameplay {
         [Button("Reset to type default")]
         private void ResetAll() {
             modifierBoost.gameObject.SetActive(false);
-
+            //modifierBoost2.gameObject.SetActive(false);
             switch (modifierType) {
                 case "Boost":
                     modifierBoost.gameObject.SetActive(true);
+                    break;
+                case "Boost2":
+                 //   modifierBoost2.gameObject.SetActive(true);
                     break;
             }
         }
@@ -87,6 +105,9 @@ namespace Gameplay {
             switch (modifierType) {
                 case "Boost":
                     modifierBoost.BoostStreamLengthMeters = boostTrailLength;
+                    break;
+                case "Boost2":
+                    //modifierBoost2.Boost2StreamLengthMeters = boostTrailLength;
                     break;
             }
         }

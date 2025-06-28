@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core.Scores;
+using JetBrains.Annotations;
 using Misc;
 using UnityEngine;
 
@@ -100,6 +101,11 @@ namespace Core.MapData {
                 // new puzzle
                 DecisionsDecisions, Playground, Highways
             };
+        }
+
+        public static IEnumerable<Level> ListCustoms() {
+            
+            return new[] {GentleStart};
         }
 
         public static Level FromString(string locationString) {

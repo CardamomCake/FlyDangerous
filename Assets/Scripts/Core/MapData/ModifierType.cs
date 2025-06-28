@@ -6,8 +6,12 @@ namespace Core.MapData {
         private static int _id;
 
         public static readonly ModifierData BoostModifierData = new BoostModifierData { Name = "Boost", BoostLengthMeters = 300 };
+        public static readonly ModifierData Boost2ModifierData = new Boost2ModifierData { Name = "Boost2", Boost2LengthMeters = 300 };
+        public static readonly ModifierData GravityFieldModifierData = new GravityFieldModifierData { Name = "GravityField", AttractorRadiousMeters = 300,AttractorStrength = 10000 };
 
         public static readonly ModifierType BoostModifierType = new(BoostModifierData);
+        public static readonly ModifierType Boost2ModifierType = new(Boost2ModifierData);
+        public static readonly ModifierType GravityFieldModifierType = new(GravityFieldModifierData);
 
         private ModifierType(ModifierData modifierData) {
             Id = GenerateId;
@@ -21,7 +25,9 @@ namespace Core.MapData {
 
         public static IEnumerable<ModifierType> List() {
             return new[] {
-                BoostModifierType
+                BoostModifierType,
+                Boost2ModifierType,
+                GravityFieldModifierType
             };
         }
 
